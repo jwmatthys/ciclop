@@ -1,0 +1,53 @@
+#N canvas 352 162 444 428 10;
+#X obj 148 17 inlet;
+#X obj 132 234 outlet~;
+#X obj -17 17 inlet~;
+#X text 186 234 audio output;
+#X text 32 17 audio input;
+#X obj 148 165 pack;
+#X obj 132 210 *~;
+#X obj 148 188 line~;
+#X text 189 187 linear envelope;
+#X text -10 298 one inlet~: audio data for processing;
+#X text -10 342 one outlet~: processed audio;
+#X msg 148 36 bang;
+#X obj 148 84 int;
+#X obj 173 84 + 1;
+#X obj 148 104 mod 2;
+#X obj 148 123 sel 0 1;
+#X msg 148 144 1 5;
+#X msg 176 144 0 5;
+#X text -11 268 switches audio input signal on/off on each new data
+value;
+#X text -10 312 one inlet: stream of values interpreted as sequential
+on/off;
+#X text 14 327 commands;
+#X text 190 17 stream of incoming data values;
+#X obj 124 61 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X text -11 283 one user-specified value: on/off key assignment ($1)
+;
+#X obj 124 -7 sel \$1;
+#X obj 124 -28 internals-keyswitch;
+#X obj -17 84 internals-bypass~;
+#X text -10 254 sfx-gate~.pd;
+#X connect 0 0 11 0;
+#X connect 2 0 26 0;
+#X connect 5 0 7 0;
+#X connect 6 0 1 0;
+#X connect 7 0 6 1;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 16 0 5 0;
+#X connect 17 0 5 0;
+#X connect 22 0 26 1;
+#X connect 24 0 22 0;
+#X connect 25 0 24 0;
+#X connect 26 0 1 0;
+#X connect 26 1 6 0;
+#X coords 0 -1 1 1 100 17 1 40 60;

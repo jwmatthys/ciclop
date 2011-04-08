@@ -1,0 +1,26 @@
+#N canvas 458 100 530 576 10;
+#X obj 36 24 inlet~;
+#X text 85 24 audio input;
+#X text 35 478 one inlet~: audio data for processing;
+#X text 33 512 one outlet~: processed audio;
+#X obj 36 401 outlet~;
+#X text 93 400 audio output;
+#X obj 185 151 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 185 120 sel \$1;
+#X text 34 463 one user-specified value: on/off key assignment (\$1)
+;
+#X text 34 448 apply reverberation to input signal;
+#X text 35 492 one inlet: values interpreted as liveliness %;
+#X obj 36 190 internals-bypass~;
+#X obj 185 86 internals-keyswitch;
+#X text 35 434 sfx-reverb~.pd;
+#X obj 277 316 freeverb~;
+#X connect 0 0 11 0;
+#X connect 6 0 11 1;
+#X connect 7 0 6 0;
+#X connect 11 0 4 0;
+#X connect 11 1 14 0;
+#X connect 12 0 7 0;
+#X connect 14 0 4 0;
+#X coords 0 -1 1 1 100 17 1 101 150;

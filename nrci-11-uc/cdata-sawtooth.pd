@@ -1,0 +1,28 @@
+#N canvas 151 273 630 328 10;
+#X obj 307 127 ctime-gincrease 1000 2000 10;
+#X obj 308 148 ctime-gdecrease 1000 2000 10;
+#X obj 306 85 ctime-lincrease 1000 2000 10;
+#X obj 307 106 ctime-ldecrease 1000 2000 10;
+#X obj 113 51 inlet;
+#X obj 101 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 101 151 bng 10 50 20 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 213 102 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 213 132 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 293 208 ctime-random2;
+#X text 100 116 ctime;
+#X text 148 99 increasing;
+#X text 148 114 decreasing;
+#X text 172 130 linear;
+#X text 153 145 geometric;
+#X floatatom 266 102 5 0 0 0 - - -;
+#X floatatom 266 121 5 0 0 0 - - -;
+#X floatatom 266 147 5 0 0 0 - - -;
+#X text 100 130 sawtooth;
+#X text 241 100 low;
+#X text 236 119 high;
+#X text 231 146 scale;
+#X coords 0 -1 1 1 200 65 1 100 100;

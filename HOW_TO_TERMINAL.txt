@@ -1,0 +1,23 @@
+QUICK GUIDE TO USING THE COMMAND LINE (TERMINAL)
+
+1. To open a terminal:
+	Mac OSX: Open the application Terminal (located in Utilities)
+	Windows XP: Click Start, Choose Run (lower right corner of start menu) and type "cmd" (no quotes)
+	Windows 7: Type cmd in the search box at the bottom of the start menu and hit enter
+
+2. Commonly used commands:
+	ls							list files in current directory ("dir" on Windows)
+	cd [directory-name]			change directory to [directory-name]. ie: cd MyMusic
+	cd ..						go up one level to the parent directory
+	exit						close the terminal window
+	
+3. * is the wildcard operator; you can use it in commands to shorten your typing. So, for example, if
+	you want to change to a directory called "Stuff I Want To Keep Secret From My Significant
+	Other" (which by the way is a terrible name for a directory), you could just type: cd stuff*
+	But it's going to choose the first directory that matches "stuff+[anything]" so if you have a
+	directory called "Stuff I Ate With Hot Sauce," then cd stuff* is going to open THAT one.
+
+4. To run ChucK, type:
+	chuck [chuck-file]			ie: chuck clix3
+	
+5. To exit any program running on the command line, press CTRL-C

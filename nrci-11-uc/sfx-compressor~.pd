@@ -1,0 +1,40 @@
+#N canvas 256 51 610 599 10;
+#X obj 283 11 inlet;
+#X obj 56 24 inlet~;
+#X text 325 11 stream of incoming data values (0 - 100);
+#X text 105 24 audio input;
+#X text 44 512 one inlet~: audio data for processing;
+#X text 44 541 one outlet~: processed audio;
+#X obj 56 401 outlet~;
+#X obj 283 31 clip 0 100;
+#X text 113 400 audio output;
+#X obj 205 151 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 56 190 internals-bypass~;
+#X obj 75 77 internals-keyswitch;
+#X text 352 30 interpreted as MIDI note numbers;
+#X obj 329 197 loadbang;
+#X text 385 217 filter resonance;
+#X obj 156 219 compressor~;
+#X obj 225 193 / 50;
+#X msg 308 235 50;
+#X text 47 436 sfx-compressor~.pd;
+#X text 46 449 apply compression to signal;
+#X text 45 478 one user-specified values: on/off key assignment (\$1)
+;
+#X text 44 526 one inlet: values 0-100 \, interpreted as amt of comp
+;
+#X obj 75 97 select \$1;
+#X connect 0 0 7 0;
+#X connect 1 0 10 0;
+#X connect 7 0 16 0;
+#X connect 9 0 10 1;
+#X connect 10 0 6 0;
+#X connect 10 1 15 0;
+#X connect 11 0 22 0;
+#X connect 13 0 17 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 1;
+#X connect 17 0 16 0;
+#X connect 22 0 9 0;
+#X coords 0 -1 1 1 140 17 1 81 150;
