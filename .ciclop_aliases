@@ -28,6 +28,7 @@ if [ ! -f $pdext ]; then
 fi
 
 alias clix="$chuck $CICLOP_DIR/clix7.ck"
+alias clixy="$pdext -path $CICLOP_DIR/silc $CICLOP_DIR/clixy/clixy.pd";
 alias crystalis="$chuck $CICLOP_DIR/crystalis.ck"
 alias windolin="$chuck $CICLOP_DIR/wind-o-lin.ck"
 alias granite="cd $CICLOP_DIR/granite09; source granite; cd -"
