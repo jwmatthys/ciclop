@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# check operating system
+if [ $OSTYPE "=" linux-gnu ]; then
+	BASH_CONFIG_FILE=~/.bashrc;
+else
+	if [ -e ~/.bash_profile ]; then
+		BASH_CONFIG_FILE=~/.bash_profile;
+	else
+		BASH_CONFIG_FILE=~/.profile;
+	fi
+fi
+
+echo "Amending $BASH_CONFIG_FILE"
+
+cd "$(dirname $0)"
+echo "Setting CiCLOP directory to `pwd`"
+if [ -z $CICLOP_VERSION ];	then # if no previous version is found
+	echo "CICLOP_DIR=`pwd`" >> $BASH_CONFIG_FILE
+	echo "if [ -f `pwd`/.ciclop_aliases ]; then" >> $BASH_CONFIG_FILE;
+	echo "    . `pwd`/.ciclop_aliases;" >> $BASH_CONFIG_FILE;
+	echo "fi" >> $BASH_CONFIG_FILE;
+fi
+
+echo "Installation complete. Please close the terminal window and reopen to continue."

@@ -1,0 +1,13 @@
+#N canvas 504 415 412 274 12;
+#X declare -path internals;
+#X obj 255 107 tgl 50 0 tog-clix empty empty 17 7 0 10 -257985 -1 -1
+0 1;
+#X obj 228 205 clixy-internals;
+#X obj 94 22 vsl 20 200 0 0.5 0 0 vol set-vol empty 0 -9 0 10 -258113
+-1 -1 19900 1;
+#X obj 135 23 hsl 200 20 0.15 3 0 0 curve set-curve empty -2 -8 0 10
+-232576 -1 -1 19900 1;
+#X text 93 227 VOL;
+#X text 259 160 ON/OFF;
+#X text 217 47 CURVE;
+#X obj 230 234 declare -path internals;

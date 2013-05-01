@@ -1,0 +1,19 @@
+#N canvas 154 208 749 331 12;
+#X obj 587 53 switch~;
+#X obj 587 25 r \$1-\$2-dsp;
+#X obj 279 131 throw~ \$1-delout;
+#X obj 332 33 r \$1-\$2-time;
+#X obj 280 101 *~;
+#X obj 436 109 line~;
+#X msg 460 78 \$1 20;
+#X obj 461 48 r \$1-\$2-gain;
+#X text 26 42 \$1 - parent's \$0 value \; \$2 - individual delay num
+\; \$3 - delay name;
+#X obj 281 72 delread~ \$3;
+#X connect 1 0 0 0;
+#X connect 3 0 9 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 9 0 4 0;
