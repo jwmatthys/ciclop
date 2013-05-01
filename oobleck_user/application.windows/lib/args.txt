@@ -1,3 +1,0 @@
- -Xms64m -Xmx1024m
-oobleck_user
-oobleck_user.jar,core.jar,controlP5.jar,oscP5.jar,oscP5.jar
