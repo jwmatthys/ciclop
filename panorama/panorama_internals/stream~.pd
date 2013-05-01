@@ -1,0 +1,33 @@
+#N canvas 85 427 450 300 10;
+#X obj 12 211 oggamp~;
+#X msg 78 182 connect \$1 ciclop.ogg 8000;
+#X msg 309 73 disconnect;
+#X symbolatom 157 101 15 0 0 0 - - -;
+#X obj 304 37 inlet;
+#X text 303 15 bang to disconnect;
+#X msg 128 37 set ip_address;
+#X obj 127 15 loadbang;
+#X obj 234 123 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 281 155 sel 1;
+#X obj 276 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 174 121 connected;
+#X msg 50 236 set \$1;
+#X obj 166 75 r hostip;
+#X obj 13 272 throw~ stream;
+#X connect 0 0 14 0;
+#X connect 0 2 12 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 6 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 1 2 0;
+#X connect 10 0 3 0;
+#X connect 12 0 8 0;
+#X connect 13 0 3 0;
+#X coords 0 -1 1 1 150 39 1 100 100;

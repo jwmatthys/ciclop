@@ -28,13 +28,14 @@ if [ ! -f $pdext ]; then
 fi
 
 alias clix="$chuck $CICLOP_DIR/clix7.ck"
-alias clixy="$pdext -path $CICLOP_DIR/silc $CICLOP_DIR/clixy/clixy.pd";
+alias clixy="$pdext $CICLOP_DIR/clixy/clixy.pd";
 alias crystalis="$chuck $CICLOP_DIR/crystalis.ck"
 alias windolin="$chuck $CICLOP_DIR/wind-o-lin.ck"
 alias granite="cd $CICLOP_DIR/granite09; source granite; cd -"
 alias fabrics="$chuck --blocking $CICLOP_DIR/fabrics/fabrics.ck"
 alias breeze="$chuck $CICLOP_DIR/breeze/breeze.ck"
 alias peepums="$pdext -path $CICLOP_DIR/silc $CICLOP_DIR/peepums/peepums.pd";
+alias panorama="$pdext $CICLOP_DIR/panorama/panorama.pd";
 alias swan="cd $CICLOP_DIR/swan_rev2; $pdext swan_with_processing.pd; cd -"
 alias tipping-point="$pdext $CICLOP_DIR/tipping_point/tipping-point.pd"
 alias myip='ifconfig | grep cast | grep inet | cut -f1 -d'c' | tr -d -c "[0-9.]" | grep "[0-9]"'

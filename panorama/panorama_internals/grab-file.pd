@@ -1,0 +1,14 @@
+#N canvas 700 217 450 300 10;
+#X obj 92 103 shell;
+#X obj 154 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 63 56 sftp jwmatthys@192.168.2.9:titanic/tempaudio.wav ~/Desktop/receivedaudio.wav
+;
+#X obj 56 28 inlet;
+#X obj 144 190 outlet;
+#X obj 80 131 print;
+#X connect 0 0 5 0;
+#X connect 0 1 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;

@@ -1,0 +1,60 @@
+#N canvas 67 162 685 363 10;
+#X obj 411 61 readsf~;
+#X obj 410 107 *~;
+#X obj 479 133 *~;
+#X obj 107 202 shell;
+#X obj 169 258 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 95 230 print;
+#X obj 480 112 vline~;
+#X msg 480 86 0 100 \, 1 1000 100;
+#X msg 400 24 open ~/Desktop/receivedaudio.wav \, 1;
+#X symbolatom 233 108 12 0 0 0 - - -;
+#X msg 78 155 sftp jwmatthys@\$1:titanic/tempaudio.wav ~/Desktop/receivedaudio.wav
+;
+#X obj 91 41 loadbang;
+#X obj 338 215 udpreceive 8003;
+#X obj 332 240 unpackOSC;
+#X obj 329 267 routeOSC /hostip /newaudio;
+#X msg 310 323 set \$1;
+#X obj 29 121 cnv 15 120 17 empty notify-sftp grab_new_audio 2 9 0
+14 -33289 -33289 0;
+#X obj 515 211 loadbang;
+#X obj 315 300 symbol;
+#X obj 371 325 s hostip;
+#X obj 410 172 throw~ stretch;
+#X msg 93 61 set not_connected;
+#X obj 11 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 113 100 play;
+#X obj 144 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 11 99 stretched live;
+#X msg 519 249 \; notify-sftp color 12 12;
+#X msg 528 307 \; notify-sftp color 12 0;
+#X connect 0 0 1 0;
+#X connect 1 0 20 0;
+#X connect 2 0 1 1;
+#X connect 3 0 5 0;
+#X connect 3 1 4 0;
+#X connect 4 0 26 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 7 0 6 0;
+#X connect 8 0 0 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 11 0 21 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 18 0;
+#X connect 14 1 27 0;
+#X connect 15 0 9 0;
+#X connect 17 0 26 0;
+#X connect 18 0 15 0;
+#X connect 18 0 19 0;
+#X connect 21 0 9 0;
+#X connect 22 0 9 0;
+#X connect 24 0 8 0;
+#X coords 0 -1 1 1 150 39 2 10 100;
