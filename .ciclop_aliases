@@ -1,30 +1,30 @@
 export CICLOP_VERSION=130501
 
 if [ $OSTYPE "=" linux-gnu ]; then
-		WHICH=which;
-		ARPFLAGS=""
-		CUTFLAGS="-c1-11"
-	else
-		WHICH=whereis;
-		ARPFLAGS="-a"
-		CUTFLAGS="-c4-14"
-	fi
+        WHICH=which;
+        ARPFLAGS=""
+        CUTFLAGS="-c1-11"
+    else
+        WHICH=whereis;
+        ARPFLAGS="-a"
+        CUTFLAGS="-c4-14"
+    fi
 
 chuck=`$WHICH chuck`
 if [ -z $chuck ]; then
-	if [ $OSTYPE "=" linux-gnu ]; then
-		chuck="$CICLOP_DIR/.chuck_linux";
-	else
-		chuck="$CICLOP_DIR/.chuck_osx";
-	fi
+    if [ $OSTYPE "=" linux-gnu ]; then
+        chuck="$CICLOP_DIR/.chuck_linux";
+    else
+        chuck="$CICLOP_DIR/.chuck_osx";
+    fi
 fi
 
 pdext=`$WHICH pdextended`
 if [ -z $pdext ]; then
-	pdext="/Applications/Pd-extended.app/Contents/Resources/bin/pdextended";
+    pdext="/Applications/Pd-extended.app/Contents/Resources/bin/pdextended";
 fi
 if [ ! -f $pdext ]; then
-	pdext="/Applications/Pd-extended.app/Contents/Resources/bin/pd";
+    pdext="/Applications/Pd-extended.app/Contents/Resources/bin/pd";
 fi
 
 alias clix="$chuck $CICLOP_DIR/clix7.ck"
@@ -34,7 +34,7 @@ alias windolin="$chuck $CICLOP_DIR/wind-o-lin.ck"
 alias granite="cd $CICLOP_DIR/granite09; source granite; cd -"
 alias timber="cd $CICLOP_DIR/timber; source wood; cd -"
 alias fabrics="$chuck --blocking $CICLOP_DIR/fabrics/fabrics.ck"
-alias breeze="$chuck $CICLOP_DIR/breeze/breeze.ck"
+alias breeze="cd $CICLOP_DIR/breeze; source run_breeze; cd -"
 alias peepums="$pdext -path $CICLOP_DIR/silc $CICLOP_DIR/peepums/peepums.pd";
 alias panorama="$pdext $CICLOP_DIR/panorama/panorama.pd";
 alias swan="cd $CICLOP_DIR/swan_rev2; $pdext swan_with_processing.pd; cd -"
