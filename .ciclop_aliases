@@ -1,4 +1,4 @@
-export CICLOP_VERSION=111002
+export CICLOP_VERSION=130501
 
 if [ $OSTYPE "=" linux-gnu ]; then
 		WHICH=which;
@@ -27,17 +27,13 @@ if [ ! -f $pdext ]; then
 	pdext="/Applications/Pd-extended.app/Contents/Resources/bin/pd";
 fi
 
-alias granny="wine ~/Software/GrannyT11/GrannyT11.exe"
 alias clix="$chuck $CICLOP_DIR/clix7.ck"
-alias chuckchat="cd $CICLOP_DIR/chuckchat; $chuck chuckchat15"
 alias crystalis="$chuck $CICLOP_DIR/crystalis.ck"
 alias windolin="$chuck $CICLOP_DIR/wind-o-lin.ck"
 alias granite="cd $CICLOP_DIR/granite09; source granite; cd -"
 alias fabrics="$chuck --blocking $CICLOP_DIR/fabrics/fabrics.ck"
 alias breeze="$chuck $CICLOP_DIR/breeze/breeze.ck"
-alias oobleck="cd $CICLOP_DIR/oobleck/application.linux; sh oobleck_player; cd -";
 alias peepums="$pdext -path $CICLOP_DIR/silc $CICLOP_DIR/peepums/peepums.pd";
-alias sonar="$pdext $CICLOP_DIR/sonar-2011-10-17/01.pd"
 alias swan="cd $CICLOP_DIR/swan_rev2; $pdext swan_with_processing.pd; cd -"
 alias tipping-point="$pdext $CICLOP_DIR/tipping_point/tipping-point.pd"
 alias myip='ifconfig | grep cast | grep inet | cut -f1 -d'c' | tr -d -c "[0-9.]" | grep "[0-9]"'
