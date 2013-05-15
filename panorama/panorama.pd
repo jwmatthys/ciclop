@@ -1,4 +1,4 @@
-#N canvas 544 136 613 614 10;
+#N canvas 533 153 613 614 10;
 #X declare -lib panorama_internals/readanysf~;
 #X declare -path panorama_internals;
 #X obj 10 305 hsl 300 30 20 128 0 0 center-freq set-center-freq empty
@@ -49,17 +49,14 @@
 #X obj 445 261 s sf-path6;
 #X obj 431 317 r set-sf-path6;
 #X obj 331 255 r set-sf-path5;
-#X msg 385 27 /home/jwmatthys/titanic/titanic_pd_13december2012/audio_files/quartet/nearer_my_god.wav
+#X msg 385 27 /home/jwmatthys/Music/ciclop_audio/faded_love.mp3;
+#X msg 386 71 /home/jwmatthys/Music/ciclop_audio/i_fall_2_pieces.mp3
 ;
-#X msg 386 71 /home/jwmatthys/titanic/titanic_pd_13december2012/audio_files/engines.wav
+#X msg 386 116 /home/jwmatthys/Music/ciclop_audio/wires.wav;
+#X msg 384 164 /home/jwmatthys/Music/fiddle/2432__andrew-duke__fiddle-melody-01.wav
 ;
-#X msg 386 116 /home/jwmatthys/titanic/titanic_pd_13december2012/audio_files/quartet/nearx4.wav
-;
-#X msg 384 164 /home/jwmatthys/titanic/titanic_pd_13december2012/audio_files/TT_perc/metal_drum.wav
-;
-#X msg 477 232 /home/jwmatthys/titanic/titanic_pd_13december2012/audio_files/TT_perc/ball_on_gong.wav
-;
-#X msg 577 294 /home/jwmatthys/titanic/titanic_pd_13december2012/audio_files/TT_perc/ball_stretchedlow.wav
+#X msg 477 232 /home/jwmatthys/Music/ciclop_audio/breathing.wav;
+#X msg 577 294 /home/jwmatthys/Music/fiddle/2433__andrew-duke__fiddle-melody-02.wav
 ;
 #X connect 1 0 25 0;
 #X connect 1 0 26 0;
@@ -116,12 +113,12 @@
 #X msg 446 -2281 set \$1;
 #X msg 501 -2281 set \$1;
 #X msg 554 -2281 set \$1;
-#X msg 459 -2324 -1;
-#X msg 514 -2324 -1;
-#X msg 567 -2324 -1;
-#X msg 462 -2251 -1;
-#X msg 517 -2251 -1;
-#X msg 570 -2251 -1;
+#X msg 459 -2324 105;
+#X msg 514 -2324 106;
+#X msg 567 -2324 107;
+#X msg 462 -2251 108;
+#X msg 517 -2251 110;
+#X msg 570 -2251 111;
 #X obj 58 -2278 midi-controller;
 #X obj 162 -2277 midi-controller;
 #X obj 82 -2218 midi-controller;
@@ -130,7 +127,7 @@
 #X obj 184 -2318 sel 1 2 3 4 5 6 7;
 #X obj 317 -2151 midi-controller;
 #X msg 433 -2171 set \$1;
-#X msg 449 -2141 -1;
+#X msg 449 -2141 26;
 #X obj 623 -2358 loadbang;
 #X obj 318 -2126 s midi-mainmix;
 #X connect 0 0 27 0;
@@ -197,17 +194,17 @@
 #X obj 189 -2216 midi-controller;
 #X obj 303 -2216 midi-controller;
 #X msg 447 -2343 set \$1;
-#X msg 444 -2320 -1;
+#X msg 444 -2320 45;
 #X msg 502 -2341 set \$1;
-#X msg 499 -2318 -1;
+#X msg 499 -2318 46;
 #X msg 564 -2340 set \$1;
-#X msg 561 -2317 -1;
+#X msg 561 -2317 47;
 #X msg 448 -2220 set \$1;
-#X msg 445 -2197 -1;
+#X msg 445 -2197 5;
 #X msg 503 -2218 set \$1;
-#X msg 500 -2195 -1;
+#X msg 500 -2195 80;
 #X msg 565 -2217 set \$1;
-#X msg 562 -2194 -1;
+#X msg 562 -2194 81;
 #X obj 652 -2349 loadbang;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
@@ -276,17 +273,17 @@
 #X obj 227 -2145 midi-controller;
 #X obj 341 -2145 midi-controller;
 #X msg 467 -2323 set \$1;
-#X msg 464 -2300 -1;
+#X msg 464 -2300 21;
 #X msg 522 -2321 set \$1;
-#X msg 519 -2298 -1;
+#X msg 519 -2298 20;
 #X msg 584 -2320 set \$1;
-#X msg 581 -2297 -1;
+#X msg 581 -2297 40;
 #X msg 468 -2200 set \$1;
-#X msg 465 -2177 -1;
+#X msg 465 -2177 43;
 #X msg 523 -2198 set \$1;
-#X msg 520 -2175 -1;
+#X msg 520 -2175 72;
 #X msg 585 -2197 set \$1;
-#X msg 582 -2174 -1;
+#X msg 582 -2174 73;
 #X obj 672 -2329 loadbang;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
@@ -377,20 +374,20 @@
 #X obj 304 -2119 midi-controller;
 #X obj 410 -2117 midi-controller;
 #X msg 590 -2293 set \$1;
-#X msg 587 -2270 -1;
+#X msg 587 -2270 51;
 #X msg 645 -2291 set \$1;
-#X msg 642 -2268 -1;
+#X msg 642 -2268 55;
 #X msg 707 -2290 set \$1;
-#X msg 704 -2267 -1;
+#X msg 704 -2267 87;
 #X msg 591 -2170 set \$1;
-#X msg 588 -2147 -1;
+#X msg 588 -2147 75;
 #X msg 646 -2168 set \$1;
-#X msg 643 -2145 -1;
+#X msg 643 -2145 76;
 #X msg 708 -2167 set \$1;
-#X msg 705 -2144 -1;
+#X msg 705 -2144 77;
 #X obj 795 -2299 loadbang;
 #X msg 531 -2293 set \$1;
-#X msg 528 -2270 -1;
+#X msg 528 -2270 50;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 2 0 31 0;
@@ -528,7 +525,7 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X text 169 459 grain size;
 #X text 168 487 size randomness;
 #X obj 32 385 hsl 128 15 0 100 0 0 gran-mix set-gran-mix empty -2 -8
-0 10 -262144 -1 -1 0 1;
+0 10 -262144 -1 -1 9100 1;
 #X text 169 384 granular mix;
 #X obj 335 347 cnv 15 200 180 empty empty empty 20 12 0 14 -191407
 -66577 0;
@@ -553,14 +550,14 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 229 516 bng 15 250 50 0 reset-grain-pitch empty empty 17 7 0
 10 -262144 -1 -1;
 #X obj 32 542 hsl 128 15 0 1 0 0 grain-pitch-randomness set-pitch-randomness
-empty -2 -8 0 10 -262144 -1 -1 0 1;
+empty -2 -8 0 10 -262144 -1 -1 9800 1;
 #X text 170 539 pitch randomness;
 #X obj 378 5 cnv 15 160 60 empty empty empty 20 12 0 14 -203904 -66577
 0;
 #X obj 378 74 cnv 15 160 60 empty empty empty 20 12 0 14 -232576 -66577
 0;
 #X obj 6 141 titanic-mixer~;
-#N canvas 148 214 516 384 assign-midi 0;
+#N canvas 29 155 516 384 assign-midi 1;
 #X obj 368 -2832 bng 30 250 50 0 midi-clearall empty empty 17 7 0 10
 -258113 -1 -1;
 #X text 354 -2799 clear all;
@@ -601,7 +598,7 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 172 -2701 cnv 15 170 150 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 183 -2682 vradio 15 1 0 8 grain-radio empty empty 0 -8 0 10
--262144 -1 -1 0;
+-262144 -1 -1 7;
 #X text 207 -2699 GRANULAR SETTINGS;
 #X text 204 -2670 granular mix;
 #X text 204 -2655 grain separation;
