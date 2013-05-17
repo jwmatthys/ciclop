@@ -1,4 +1,4 @@
-SndBuf s1 => DelayL d => JCRev rc => Dyno limiter => dac;
+SndBuf s1 => DelayL d => JCRev rc => dac;
 d => Gain g => d;
 
 "cracklingloop.aif" => s1.read;
@@ -12,14 +12,9 @@ d => Gain g => d;
 3.0 => s1.gain;
 1 => s1.loop;
 
-JCRev r => limiter;
-JCRev rl => Dyno limiterL => dac.left;
-JCRev rr => Dyno limiterR => dac.right;
-
-limiter.limit();
-limiterL.limit();
-limiterR.limit();
-0.6 => limiter.gain => limiterL.gain => limiterR.gain;
+JCRev r => dac;
+JCRev rl => dac.left;
+JCRev rr => dac.right;
 
 0.03 => float vigor;
 0.11 => float tempo;
