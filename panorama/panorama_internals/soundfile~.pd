@@ -1,4 +1,4 @@
-#N canvas 356 251 831 516 10;
+#N canvas 354 251 831 516 10;
 #X obj 475 39 openpanel;
 #X obj 54 -16 init 1;
 #X text 32 256 \$1 fade time;
@@ -19,8 +19,8 @@
 #X obj 262 16 r sf-path\$2;
 #X obj 473 224 s set-sf-path\$2;
 #X obj 262 40 symbol;
-#X obj 11 139 cnv 15 128 15 empty \$2-filename uptown.wav 1 8 1 12
--62784 -262144 0;
+#X obj 11 139 cnv 15 128 15 empty \$2-filename no_file_loaded 1 8 1
+12 -62784 -262144 0;
 #X obj 501 64 splitfilename /;
 #X msg 500 172 \; \$2-filename label \$1;
 #X obj 548 134 pack symbol \$2;
