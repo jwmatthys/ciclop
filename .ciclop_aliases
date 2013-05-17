@@ -37,6 +37,7 @@ alias fabrics="$chuck --blocking $CICLOP_DIR/fabrics/fabrics.ck"
 alias breeze="cd $CICLOP_DIR/breeze; source run_breeze; cd -"
 alias peepums="$pdext -path $CICLOP_DIR/silc $CICLOP_DIR/peepums/peepums.pd";
 alias panorama="$pdext $CICLOP_DIR/panorama/panorama.pd";
+alias panorama2="$pdext $CICLOP_DIR/panorama/panorama2.pd";
 alias swan="cd $CICLOP_DIR/swan_rev2; $pdext swan_with_processing.pd; cd -"
 alias tipping-point="$pdext $CICLOP_DIR/tipping_point/tipping-point.pd"
 alias myip='ifconfig | grep cast | grep inet | cut -f1 -d'c' | tr -d -c "[0-9.]" | grep "[0-9]"'
