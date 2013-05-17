@@ -1,4 +1,4 @@
-#N canvas 358 251 831 516 10;
+#N canvas 356 251 831 516 10;
 #X obj 475 39 openpanel;
 #X obj 54 -16 init 1;
 #X text 32 256 \$1 fade time;
@@ -19,9 +19,9 @@
 #X obj 262 16 r sf-path\$2;
 #X obj 473 224 s set-sf-path\$2;
 #X obj 262 40 symbol;
-#X obj 11 139 cnv 15 128 15 empty \$2-filename faded_love.mp3 1 8 1
-12 -62784 -262144 0;
-#X obj 489 79 splitfilename /;
+#X obj 11 139 cnv 15 128 15 empty \$2-filename uptown.wav 1 8 1 12
+-62784 -262144 0;
+#X obj 501 64 splitfilename /;
 #X msg 500 172 \; \$2-filename label \$1;
 #X obj 548 134 pack symbol \$2;
 #X obj 235 264 t b b;
@@ -51,6 +51,7 @@
 #X msg 354 31 \$1 2000;
 #X obj 129 142 bng 12 250 50 0 empty empty empty 17 7 0 10 -159808
 -1 -1;
+#X obj 551 104 splitfilename .;
 #X connect 0 0 15 0;
 #X connect 0 0 18 0;
 #X connect 0 0 24 0;
@@ -66,7 +67,7 @@
 #X connect 14 0 16 0;
 #X connect 16 0 18 0;
 #X connect 16 0 24 0;
-#X connect 18 1 20 0;
+#X connect 18 1 45 0;
 #X connect 20 0 19 0;
 #X connect 21 0 0 0;
 #X connect 21 1 22 0;
@@ -95,4 +96,5 @@
 #X connect 42 0 40 0;
 #X connect 43 0 42 0;
 #X connect 44 0 41 0;
+#X connect 45 0 20 0;
 #X coords 0 -1 1 1 145 55 2 10 100;

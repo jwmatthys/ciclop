@@ -1,4 +1,4 @@
-#N canvas 533 153 613 614 10;
+#N canvas 531 153 613 614 10;
 #X declare -lib panorama_internals/readanysf~;
 #X declare -path panorama_internals;
 #X obj 10 305 hsl 300 30 20 128 0 0 center-freq set-center-freq empty
@@ -525,7 +525,7 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X text 169 459 grain size;
 #X text 168 487 size randomness;
 #X obj 32 385 hsl 128 15 0 100 0 0 gran-mix set-gran-mix empty -2 -8
-0 10 -262144 -1 -1 9100 1;
+0 10 -262144 -1 -1 0 1;
 #X text 169 384 granular mix;
 #X obj 335 347 cnv 15 200 180 empty empty empty 20 12 0 14 -191407
 -66577 0;
@@ -550,14 +550,14 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 229 516 bng 15 250 50 0 reset-grain-pitch empty empty 17 7 0
 10 -262144 -1 -1;
 #X obj 32 542 hsl 128 15 0 1 0 0 grain-pitch-randomness set-pitch-randomness
-empty -2 -8 0 10 -262144 -1 -1 9800 1;
+empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X text 170 539 pitch randomness;
 #X obj 378 5 cnv 15 160 60 empty empty empty 20 12 0 14 -203904 -66577
 0;
 #X obj 378 74 cnv 15 160 60 empty empty empty 20 12 0 14 -232576 -66577
 0;
 #X obj 6 141 titanic-mixer~;
-#N canvas 29 155 516 384 assign-midi 1;
+#N canvas 27 160 516 384 assign-midi 0;
 #X obj 368 -2832 bng 30 250 50 0 midi-clearall empty empty 17 7 0 10
 -258113 -1 -1;
 #X text 354 -2799 clear all;
@@ -598,7 +598,7 @@ empty -2 -8 0 10 -262144 -1 -1 9800 1;
 #X obj 172 -2701 cnv 15 170 150 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 183 -2682 vradio 15 1 0 8 grain-radio empty empty 0 -8 0 10
--262144 -1 -1 7;
+-262144 -1 -1 0;
 #X text 207 -2699 GRANULAR SETTINGS;
 #X text 204 -2670 granular mix;
 #X text 204 -2655 grain separation;
