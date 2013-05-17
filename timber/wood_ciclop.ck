@@ -29,17 +29,24 @@ recvglobal.event( "/clockGlobal, f, f, i") @=> OscEvent oeglobal;
 
 JCRev r[6];	HPF h[6]; // Reverbs and High-Pass Filters
 
+Dyno dynL => dac.left;
+Dyno dynR => dac.right;
+dynL.limit();
+dynR.limit();
+0.5 => dynL.gain => dynR.gain;
+
 int i;
 //  DO THESE LINES FOR STEREO
-r[0]=>h[0]=>dac.left; r[1]=>h[1]=>dac.right;
-r[2]=>h[2]=>dac.left; r[3]=>h[3]=>dac.right;
-r[4]=>h[4]=>dac.left; r[5]=>h[5]=>dac.right;
+r[0]=>h[0]=>dynL; r[1]=>h[1]=>dynR;
+r[2]=>h[2]=>dynL; r[3]=>h[3]=>dynR;
+r[4]=>h[4]=>dynL; r[5]=>h[5]=>dynR;
+
 for (0=>i;i<6;i+1=>i)  {
     //r[i] => h[i] => dac.chan(i);   //  DO THIS LINE FOR 6 CHANNEL
     0.1 => r[i].mix;        // DO THIS FOR EITHER
 }
 
-JCRev rl => dac.left;  JCRev rr => dac.right;
+JCRev rl => dynL;  JCRev rr => dynR;
 0.1 => rl.mix; 0.1 => rr.mix;
 
 Delay d => r[4] => r[5]; Delay dl => rl; Delay dr => rr;
@@ -53,9 +60,9 @@ d => d => dl => dr; dl => dr; dr => dl;
 0.00 => float bass2vigor;  0.00 => float bass3vigor;
 0.12 => float tempo;
 
-SndBuf hA1 => r[0]; SndBuf hA2 => r[1];
-SndBuf hB1 => r[2]; SndBuf hB2 => r[3];
-SndBuf hC1 => r[4]; SndBuf hC2 => r[5];
+SndBuf hA1 => dynL; SndBuf hA2 => dynR;
+SndBuf hB1 => dynL; SndBuf hB2 => dynR;
+SndBuf hC1 => dynL; SndBuf hC2 => dynR;
 // See bottom for more interesting code, sigh...
 
 SndBuf h0 => r[0] => r[1];  h0 => d;
@@ -134,13 +141,13 @@ while (running)  {
             perry.next( out[m] );               // get all fields
             m + 1 => m;
         }
-    <<< out[0],Std.atof(out[3]) >>>;  // For debugging
+    //<<< out[0],Std.atof(out[3]) >>>;  // For debugging
         if (out[0] == "ExitProgram") {
         0 => running;
         }
         else if (out[0] == "DownBeat")	{
             17 => j;
-            <<< "DownBeat"," !!!" >>>;
+            //<<< "DownBeat"," !!!" >>>;
             1.0 => bass[0].gain;  0 => bass[0].pos;
             1.0 => bass[1].gain;  0 => bass[1].pos;
             1.0 => bass[2].gain;  0 => bass[2].pos;
@@ -200,52 +207,52 @@ fun void drum()	{
 //    while (running)	{
     if (j == 0) {
         0 => h0.pos;
-        Std.rand2f(0.8,2.0) * mvigor * mvigor => h0.gain;
+        Math.random2f(0.8,2.0) * mvigor * mvigor => h0.gain;
         (mvigor * marimp[j] * 4) $ int => happiness;
-        basekey*(Std.rand2(0,happiness)*0.25+0.5) => h0.rate;
+        basekey*(Math.random2(0,happiness)*0.25+0.5) => h0.rate;
     }
-    if (Std.rand2f(1.0-mvigor,1.0) < mvigor * marimp[j]) {
+    if (Math.random2f(1.0-mvigor,1.0) < mvigor * marimp[j]) {
         0 => h1.pos;
-        Std.rand2f(0.5,marimp[j]) * mvigor * 2.0 => h1.gain;
+        Math.random2f(0.5,marimp[j]) * mvigor * 2.0 => h1.gain;
         (mvigor * marimp[j] * 10) $ int => happiness;
-        basekey*(Std.rand2(0,happiness)*0.125+0.125) => h1.rate;
+        basekey*(Math.random2(0,happiness)*0.125+0.125) => h1.rate;
     }
-    if (Std.rand2f(1.0-mvigor,1.0) < mvigor * marimp[j]) {
+    if (Math.random2f(1.0-mvigor,1.0) < mvigor * marimp[j]) {
         0 => h2.pos;
-        Std.rand2f(0.5,marimp[j]) * mvigor * 2.0 => h2.gain;
+        Math.random2f(0.5,marimp[j]) * mvigor * 2.0 => h2.gain;
         (mvigor * marimp[j] * 10) $ int => happiness;
-        basekey*(Std.rand2(0,happiness)*0.125+0.125) => h2.rate;
+        basekey*(Math.random2(0,happiness)*0.125+0.125) => h2.rate;
     }
-    if (Std.rand2f(1.0-bass0vigor,1.0) < bass0vigor * bas0p[j]) {
+    if (Math.random2f(1.0-bass0vigor,1.0) < bass0vigor * bas0p[j]) {
         0 => bass[0].pos;
-        1.0 * Std.rand2f(0.5,bas0p[j]) * bass0vigor => bass[0].gain;
+        1.0 * Math.random2f(0.5,bas0p[j]) * bass0vigor => bass[0].gain;
         bassbase => bass[0].rate;
     }
-    if (Std.rand2f(1.0-bass1vigor,1.0) < bass1vigor * bas1p[j]) {
+    if (Math.random2f(1.0-bass1vigor,1.0) < bass1vigor * bas1p[j]) {
         0 => bass[1].pos;
-        1.0 * Std.rand2f(0.4,bas1p[j]) * bass1vigor => bass[1].gain;
+        1.0 * Math.random2f(0.4,bas1p[j]) * bass1vigor => bass[1].gain;
         bassbase => bass[1].rate;
     }
-    if (Std.rand2f(1.0-bass2vigor,1.0) < bass2vigor * bas2p[j]) {
+    if (Math.random2f(1.0-bass2vigor,1.0) < bass2vigor * bas2p[j]) {
         0 => bass[2].pos;
-        3.0 * Std.rand2f(0.4,bas2p[j]) * bass2vigor => bass[2].gain;
+        3.0 * Math.random2f(0.4,bas2p[j]) * bass2vigor => bass[2].gain;
         bassbase * 0.44584 => bass[2].rate;
     }
-    if (Std.rand2f(1.0-bass3vigor,1.0) < bass3vigor * bas3p[j]) {
+    if (Math.random2f(1.0-bass3vigor,1.0) < bass3vigor * bas3p[j]) {
         0 => bass[3].pos;
-        1.0 * Std.rand2f(0.4,bas3p[j]) * bass3vigor => bass[3].gain;
-        Std.rand2f(0.0,1.0) => g4.gain;
+        1.0 * Math.random2f(0.4,bas3p[j]) * bass3vigor => bass[3].gain;
+        Math.random2f(0.0,1.0) => g4.gain;
         1.0 - g4.gain() => g5.gain;
-        Std.rand2(0,4) * 0.5 * bassbase => bass[3].rate;
-        Std.rand2(0,4) * bassbase => bass[3].rate;
+        Math.random2(0,4) * 0.5 * bassbase => bass[3].rate;
+        Math.random2(0,4) * bassbase => bass[3].rate;
     }
 
-    if (Std.rand2f(0.0,1.0) < bvigor * blockp[j]) {
+    if (Math.random2f(0.0,1.0) < bvigor * blockp[j]) {
         (bvigor * 7) $ int => happiness;
         for (0 => k; k < happiness; 1 +=> k)	{
-        Std.rand2f(0.0,1.0) => temp;
-        Std.rand2f(0.3,blockp[j]) * bvigor => bgain1;
-        Std.rand2f(0.3,blockp[j]) * bvigor => bgain2;
+        Math.random2f(0.0,1.0) => temp;
+        Math.random2f(0.3,blockp[j]) * bvigor => bgain1;
+        Math.random2f(0.3,blockp[j]) * bvigor => bgain2;
         if (temp < 0.333)	{	// Used to be 0.166
             0 => hA1.pos; 0 => hA2.pos;
             bgain1 => hA1.gain; bgain2 => hA2.gain;
@@ -278,7 +285,7 @@ fun void drum()	{
     if (j == 18) {
         0 => j;
         1 + measure => measure;
-        <<< "One.....", measure >>>;
+        //<<< "One.....", measure >>>;
     }
 //    }
 }
@@ -301,7 +308,6 @@ fun void getsync()   {
         hpq => h[hpi].Q;
         hpf => h[hpi].freq;
         }
-        <<< bang >>>;
         oeglobal.getInt() => hpDownbeat;
         if (hpDownbeat==1)	{
         17 => j;
