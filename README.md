@@ -13,3 +13,11 @@ clixy - Joel's variation on clix
 granite - crackles and drums
 timber - marimba and big drums
 breeze - harmonies, melodies, and arpeggios
+
+## IP address
+
+Players can find out their LAN IP address by typing:
+ myip
+ or
+ echo $MYIP
+
