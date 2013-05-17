@@ -60,11 +60,6 @@ d => d => dl => dr; dl => dr; dr => dl;
 0.00 => float bass2vigor;  0.00 => float bass3vigor;
 0.12 => float tempo;
 
-SndBuf hA1 => dynL; SndBuf hA2 => dynR;
-SndBuf hB1 => dynL; SndBuf hB2 => dynR;
-SndBuf hC1 => dynL; SndBuf hC2 => dynR;
-// See bottom for more interesting code, sigh...
-
 SndBuf h0 => r[0] => r[1];  h0 => d;
 SndBuf h1 => rl; h1 => dr; SndBuf h2 => rr; h2 => dl;
 "snd/Marimba1.aif" => h0.read;
@@ -88,16 +83,24 @@ bassbase => bass[2].rate; 0.0 => bass[2].gain;
 "snd/LowBonk2.wav" => bass[3].read;
 bassbase => bass[3].rate; 0.0 => bass[3].gain;
 
-"snd/BlockA1.aif" => hA1.read; "snd/BlockB2.aif" => hA2.read;
-"snd/BlockC1.aif" => hB1.read; "snd/BlockD2.aif" => hB2.read;
-"snd/BlockE1.aif" => hC1.read; "snd/BlockF2.aif" => hC2.read;
-// See bottom for more interesting code.  sigh.....
+SndBuf hA1 => dynL; SndBuf hA2 => dynR;
+SndBuf hB1 => dynL; SndBuf hB2 => dynR;
+SndBuf hC1 => dynL; SndBuf hC2 => dynR;
+SndBuf hD1 => dynL; SndBuf hD2 => dynR;
+SndBuf hE1 => dynL; SndBuf hE2 => dynR;
+SndBuf hF1 => dynL; SndBuf hF2 => dynR;
+"snd/BlockA1.aif" => hA1.read; "snd/BlockA2.aif" => hA2.read;
+"snd/BlockB1.aif" => hB1.read; "snd/BlockB2.aif" => hB2.read;
+"snd/BlockC1.aif" => hC1.read; "snd/BlockC2.aif" => hC2.read;
+"snd/BlockD1.aif" => hD1.read; "snd/BlockD2.aif" => hD2.read;
+"snd/BlockE1.aif" => hE1.read; "snd/BlockE2.aif" => hE2.read;
+"snd/BlockF1.aif" => hF1.read; "snd/BlockF2.aif" => hF2.read;
 
 0.0 => h0.gain;  0.0 => h1.gain;  0.0 => h2.gain;
 0.0 => hA1.gain; 0.0 => hA2.gain; 0.0 => hB1.gain; 0.0 => hB2.gain;
 0.0 => hC1.gain; 0.0 => hC2.gain;
-// 0.0 => hD1.gain; 0.0 => hD2.gain;
-// 0.0 => hE1.gain; 0.0 => hE2.gain; 0.0 => hF1.gain; 0.0 => hF2.gain;
+0.0 => hD1.gain; 0.0 => hD2.gain;
+0.0 => hE1.gain; 0.0 => hE2.gain; 0.0 => hF1.gain; 0.0 => hF2.gain;
 
 [1.0, 0.2, 0.3, 0.1, 1.0, 0.0, 0.2, 0.1,
  1.0, 0.1, 0.2, 0.0, 0.3, 0.0,  0.1, 0.2, 0.3, 0.4] @=> float marimp[];
@@ -253,19 +256,19 @@ fun void drum()	{
         Math.random2f(0.0,1.0) => temp;
         Math.random2f(0.3,blockp[j]) * bvigor => bgain1;
         Math.random2f(0.3,blockp[j]) * bvigor => bgain2;
-        if (temp < 0.333)	{	// Used to be 0.166
+        if (temp < 0.166)	{	// Used to be 0.166
             0 => hA1.pos; 0 => hA2.pos;
             bgain1 => hA1.gain; bgain2 => hA2.gain;
         }
-        else if (temp < 0.666)	{	// Used to be 0.333
+        else if (temp < 0.333)	{	// Used to be 0.333
             0 => hB1.pos; 0 => hB2.pos;
             bgain1 => hB1.gain; bgain2 => hB2.gain;
         }
-        else	{			// used to be else if < 0.5
+        else if (temp < 0.5)	{	// used to be else if < 0.5
             0 => hC1.pos; 0 => hC2.pos;
             bgain1 => hC1.gain; bgain2 => hC2.gain;
         }
-/*		else if (temp < 0.666) {
+		else if (temp < 0.666) {
             0 => hD1.pos; 0 => hD2.pos;
             bgain1 => hD1.gain; bgain2 => hD2.gain;
         }
@@ -277,7 +280,7 @@ fun void drum()	{
             0 => hF1.pos; 0 => hF2.pos;
             bgain1 => hF1.gain; bgain2 => hF2.gain;
         }
-*/
+
         }
     }
 //    timer(tempo);
@@ -348,15 +351,3 @@ fun void timer(float pauseTime)    {
 // Clave1.aif Stick1.aif Clave2.aif Stick2.aif
 // Cast1.aif Stick3.aif Cast2.aif Stick4.aif Cast4.aif
 // More interesting code
-//SndBuf hA1 => r[0]; SndBuf hA2 => r[1];
-//SndBuf hB1 => r[2]; SndBuf hB2 => r[3];
-//SndBuf hC1 => r[4]; SndBuf hC2 => r[5];
-// SndBuf hD1 => r[0]; SndBuf hD2 => r[1];
-// SndBuf hE1 => r[2]; SndBuf hE2 => r[3];
-// SndBuf hF1 => r[4]; SndBuf hF2 => r[5];
-//"snd/BlockA1.aif" => hA1.read; "snd/BlockA2.aif" => hA2.read;
-//"snd/BlockB1.aif" => hB1.read; "snd/BlockB2.aif" => hB2.read;
-//"snd/BlockC1.aif" => hC1.read; "snd/BlockC2.aif" => hC2.read;
-//"snd/BlockD1.aif" => hD1.read; "snd/BlockD2.aif" => hD2.read;
-//"snd/BlockE1.aif" => hE1.read; "snd/BlockE2.aif" => hE2.read;
-//"snd/BlockF1.aif" => hF1.read; "snd/BlockF2.aif" => hF2.read;
