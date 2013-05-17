@@ -6,7 +6,7 @@ CiCLOP code for Cincinnati Fringe Festival, May 28-June 8
 
 Once installed, there are command-line shortcuts for:
 
-panorama - the Panorama soundfile player
+panorama - the Panorama soundfile player\n
 panorama2 - duplicate player (so you can have different soundfiles stored)
 clix - Ge Wang's Clix
 clixy - Joel's variation on clix
