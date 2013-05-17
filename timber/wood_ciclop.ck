@@ -7,7 +7,7 @@
 Std.getenv("MYIP") => string newclient;
 <<<newclient>>>;
 //shread to regularly broadcast our presence and name to all on LAN
-spork ~ multicast_me();
+//spork ~ multicast_me();
 //multicasts name of this machine to all on LAN
 fun void multicast_me()
 {       // send object
