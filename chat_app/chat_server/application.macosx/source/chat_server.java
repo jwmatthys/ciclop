@@ -31,27 +31,41 @@ public class chat_server extends PApplet {
 
 
 
-
 OscP5 oscP5tcpServer;
 NetAddressList clients;
+boolean msgRcvd = false;
 
 public void setup()
 {
+  size(200,100);
   /* create  an oscP5 instance using TCP listening @ port 11000 */
   oscP5tcpServer = new OscP5(this, 13032, OscP5.TCP);
   clients = new NetAddressList();
+  textAlign(CENTER);
+  noStroke();
+  frameRate(1);
 }
 
 
 public void draw()
 {
+  background(0);
+  fill(255);
+  text("CiCLOP Chat Server",width/2,height/2);
+  text("running",width/2,height/2 + 20);
+  if (msgRcvd)
+  {
+    fill(255,0,0);
+    ellipse(width-30,height-30,20,20);
+    msgRcvd = false;
+  }
 }
 
 public void oscEvent(OscMessage theMessage)
 {
   /* check how many clients are connected to the server. */
-  println(oscP5tcpServer.tcpServer().getClients().length);
-  System.out.println("### got a message " + theMessage);
+  //println(oscP5tcpServer.tcpServer().getClients().length);
+  //System.out.println("### got a message " + theMessage);
   if (theMessage.checkAddrPattern("/ciclop/client")) {
     /* message was send from the tcp client */
     OscMessage m = new OscMessage("/ciclop/server");
@@ -62,6 +76,7 @@ public void oscEvent(OscMessage theMessage)
     {
       oscP5tcpServer.send(m, oscP5tcpServer.tcpServer().getClients()[i]);
     }
+    msgRcvd = true;
   }
 }
 
