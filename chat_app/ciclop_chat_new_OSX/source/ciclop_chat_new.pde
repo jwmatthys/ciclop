@@ -1,9 +1,10 @@
 import oscP5.*;
 import netP5.*;
 
-OscP5 oscP5;
+OscP5 oscChat;
+OscP5 oscClock;
 
-PFont font;
+//PFont font;
 String[] lines;
 String currentMessage = "";
 String lastMessage = "";
@@ -11,18 +12,23 @@ String nextMessage = "";
 String remainder = "";
 String name = "";
 boolean nameEntered = false;
+int mins, secs, section;
 
 void setup()
 {
   size(400, 200);
   smooth();
-  oscP5 = new OscP5(this, "joel-hp-dv6.local", 13032, OscP5.TCP);
-  font = createFont("sans_serif", 60, true);
+  oscClock = new OscP5(this, 26499);
+  oscChat = new OscP5(this, "joel-hp-dv6.local", 13032, OscP5.TCP);
+  //font = createFont("sans_serif", 60, true);
   noStroke();
   fill(255, 255, 0);
   frameRate(10);
   lines = new String[9];
   for (int i=0; i<lines.length; i++) lines[i]="";
+  mins = 0;
+  secs = 0;
+  section = 0;
 }
 
 void draw()
@@ -30,6 +36,10 @@ void draw()
   background(0, 0, 64);
   if (nameEntered)
   {
+    textAlign(RIGHT);
+    textSize(48);
+    String time = nf(mins,2,0)+":"+nf(secs,2,0);
+    text(time,width-10,50);
     textAlign(LEFT);
     textSize(16);
     stroke(128);
@@ -69,7 +79,7 @@ void keyPressed()
       OscMessage myMessage = new OscMessage ("/ciclop/client");
       String msg = name+": "+currentMessage+remainder;
       myMessage.add(msg);
-      oscP5.send(myMessage);
+      oscChat.send(myMessage);
       lastMessage = currentMessage;
       currentMessage = "";
       remainder = "";
@@ -123,7 +133,7 @@ void keyPressed()
     OscMessage myMessage = new OscMessage ("/ciclop/client");
     String msg = name+": "+currentMessage;
     myMessage.add(msg);
-    oscP5.send(myMessage);
+    oscChat.send(myMessage);
     lastMessage = currentMessage;
     currentMessage = "";
   }
@@ -131,10 +141,16 @@ void keyPressed()
 
 void oscEvent(OscMessage msg)
 {
-  if (msg.checkAddrPattern("/ciclop/server")==true)
+  if (msg.addrPattern().equals("/ciclop/server"))
   {
     String incoming = msg.get(0).stringValue();
     addToList(incoming);
+  }
+  else if (msg.addrPattern().equals("/clock"))
+  {
+    mins = msg.get(0).intValue();
+    secs = msg.get(1).intValue();
+    section = msg.get(2).intValue();
   }
 }
 
