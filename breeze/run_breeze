@@ -1,1 +1,1 @@
-wish breeze.tcl | chuck -c2 breeze.ck
+wish breeze.tcl | $chuck -c2 breeze.ck

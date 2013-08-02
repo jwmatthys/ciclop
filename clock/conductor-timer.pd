@@ -1,5 +1,5 @@
-#N canvas 612 312 216 235 10;
-#N canvas 726 441 639 441 internals 0;
+#N canvas 610 345 216 235 10;
+#N canvas 87 200 639 441 internals 1;
 #N canvas 566 285 450 300 sendosc 0;
 #X obj 174 123 loadbang;
 #X obj 129 89 mrpeach/packOSC;
@@ -91,6 +91,10 @@
 #X obj 466 136 mrpeach/udpreceive 45828;
 #X obj 466 161 mrpeach/unpackOSC;
 #X obj 467 183 mrpeach/routeOSC /startclock;
+#X obj 54 64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 29 until;
+#X msg 26 7 60;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 3;
@@ -113,9 +117,12 @@
 #X connect 19 0 20 0;
 #X connect 20 0 21 0;
 #X connect 21 0 18 0;
+#X connect 22 0 4 0;
+#X connect 23 0 22 0;
+#X connect 24 0 23 0;
 #X restore 36 149 pd internals;
 #X obj 151 25 vradio 15 1 0 10 sectionnum empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 4;
 #X text 134 6 sections;
 #X obj 18 12 tgl 100 0 tog-clock osc-start empty 17 7 0 10 -260097
 -1 -1 1 1;

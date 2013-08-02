@@ -1,2 +1,2 @@
-wish TimberGUI.tcl | chuck --blocking wood_ciclop.ck
+wish TimberGUI.tcl | $chuck --blocking wood_ciclop.ck
 

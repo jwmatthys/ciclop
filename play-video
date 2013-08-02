@@ -1,2 +1,0 @@
-oscsend matthys-vaio.local 45828 /startclock ;
-echo 'vlc -f ~/Videos/pa_final.avi --no-video-title-show;' | pdsend 45224 matthys-vaio.local

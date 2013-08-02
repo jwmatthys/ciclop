@@ -1,11 +1,11 @@
-#N canvas 752 121 613 614 10;
+#N canvas 267 158 613 614 10;
 #X declare -lib panorama_internals/readanysf~;
 #X declare -path panorama_internals;
 #X obj 10 305 hsl 300 30 20 128 0 0 center-freq set-center-freq empty
 -2 -8 0 10 -4032 -1 -1 14950 1;
 #X obj 11 343 hsl 128 15 1 5 1 0 filter-q set-filter-q empty -2 -8
 0 10 -4032 -1 -1 0 1;
-#N canvas 388 147 916 578 internals 0;
+#N canvas 584 123 916 578 internals 0;
 #X obj 136 131 filters~;
 #X obj 139 83 amp-mod~;
 #X obj 137 224 reverb~;
@@ -616,19 +616,19 @@
 #X obj 10 370 cnv 15 300 200 empty empty empty 20 12 0 14 -204786 -66577
 0;
 #X obj 32 411 hsl 128 15 5 30000 1 0 grain-separation set-grain-separation
-empty -2 -8 0 10 -262144 -1 -1 3361 1;
+empty -2 -8 0 10 -262144 -1 -1 4756 1;
 #X text 169 409 grain separation;
 #X obj 32 437 hsl 128 15 90 9000 1 0 grain-rate-var set-grain-rate-var
-empty -2 -8 0 10 -262144 -1 -1 0 1;
+empty -2 -8 0 10 -262144 -1 -1 6192 1;
 #X text 169 434 separation randomness;
 #X obj 32 463 hsl 128 15 50 30000 1 0 grain-size set-grain-size empty
--2 -8 0 10 -262144 -1 -1 1376 1;
+-2 -8 0 10 -262144 -1 -1 5948 1;
 #X obj 32 489 hsl 128 15 50 5000 1 0 grain-size-var set-grain-size-var
-empty -2 -8 0 10 -262144 -1 -1 0 1;
+empty -2 -8 0 10 -262144 -1 -1 6059 1;
 #X text 169 459 grain size;
 #X text 168 487 size randomness;
 #X obj 32 385 hsl 128 15 0 100 0 0 gran-mix set-gran-mix empty -2 -8
-0 10 -262144 -1 -1 0 1;
+0 10 -262144 -1 -1 12700 1;
 #X text 169 384 granular mix;
 #X obj 335 347 cnv 15 200 180 empty empty empty 20 12 0 14 -191407
 -66577 0;
@@ -642,7 +642,7 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 455 359 vsl 15 128 0 1 0 0 verb-size set-verb-size empty 0 -9
 0 10 -232576 -1 -1 12065 1;
 #X obj 486 359 vsl 15 128 0 1 0 0 verb-mix set-verb-mix empty 0 -9
-0 10 -203904 -1 -1 0 1;
+0 10 -203904 -1 -1 1300 1;
 #X text 450 490 size;
 #X text 484 490 mix;
 #X text 455 508 Reverb;
@@ -653,7 +653,7 @@ empty -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 229 516 bng 15 250 50 0 reset-grain-pitch empty empty 17 7 0
 10 -262144 -1 -1;
 #X obj 32 542 hsl 128 15 0 1 0 0 grain-pitch-randomness set-pitch-randomness
-empty -2 -8 0 10 -262144 -1 -1 0 1;
+empty -2 -8 0 10 -262144 -1 -1 9600 1;
 #X text 170 539 pitch randomness;
 #X obj 378 5 cnv 15 160 60 empty empty empty 20 12 0 14 -203904 -66577
 0;
@@ -737,3 +737,6 @@ controller \; settings. \; \; You may need to set up \; your MIDI controller
 #X obj 446 148 bng 15 250 50 0 save-sf-paths empty empty 17 7 0 10
 -258113 -1 -1;
 #X text 463 146 save sf list;
+#X text 273 459 reset;
+#X obj 254 462 bng 15 250 50 0 reset-gran-times empty empty 17 7 0
+10 -262144 -1 -1;
