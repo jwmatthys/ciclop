@@ -43,3 +43,4 @@ alias swan="cd $CICLOP_DIR/swan_rev2; $pdext swan_with_processing.pd; cd -"
 alias tipping-point="$pdext $CICLOP_DIR/tipping_point/tipping-point.pd"
 alias myip='ifconfig | grep cast | grep inet | cut -f1 -d'c' | tr -d -c "[0-9.]" | grep "[0-9]"'
 export MYIP=`myip`
+echo $MYIP > .myip
