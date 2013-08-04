@@ -1,0 +1,17 @@
+#N canvas 1911 254 450 300 10;
+#X declare -lib mrpeach;
+#X declare -lib mrpeach;
+#X msg 130 37 3;
+#X floatatom 301 34 5 0 0 0 - - -;
+#X obj 71 154 net-rcvosc /joel;
+#X floatatom 71 220 5 0 0 0 - - -;
+#X floatatom 124 220 5 0 0 0 - - -;
+#X floatatom 184 215 5 0 0 0 - - -;
+#X floatatom 236 220 5 0 0 0 - - -;
+#X obj 137 69 net-sendosc localhost /bob;
+#X connect 0 0 7 0;
+#X connect 1 0 7 1;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 2 3 6 0;

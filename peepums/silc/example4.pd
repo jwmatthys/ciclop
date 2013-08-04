@@ -1,0 +1,10 @@
+#N canvas 59 24 488 508 10;
+#X obj 101 137 sfx-autotune~;
+#X obj 101 266 sfx-mixer2~;
+#X msg 100 79 bang;
+#X obj 100 106 synth-soundfile~;
+#X text 137 79 click to play;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;

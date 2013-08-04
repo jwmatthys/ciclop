@@ -1,0 +1,31 @@
+#N canvas 181 116 629 369 10;
+#X obj 204 27 inlet;
+#X text 248 27 on/off switch;
+#X obj 204 70 metro \$1;
+#X text 248 39 (0 = off \, 1 = on);
+#X obj 204 163 outlet;
+#X text 10 165 milo-ctime-periodic.pd;
+#X text 9 179 produce a periodic stream of bangs;
+#X text 11 222 one inlet: on/off switch (nonzero/zero);
+#X text 11 237 one outlet: stream of bang messages;
+#X obj 204 51 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 204 89 t b b b;
+#X obj 248 108 f \$1;
+#X obj 134 26 select \$2;
+#X text 9 192 two user-specified values: bang frequency in msec (\$1)
+\,;
+#X text 28 206 on/off key assignment (\$2);
+#X obj 134 3 internals-keyswitch;
+#X obj 248 127 s duration-report;
+#X obj 226 144 s rhythm-report;
+#X connect 0 0 9 0;
+#X connect 2 0 10 0;
+#X connect 9 0 2 0;
+#X connect 10 0 4 0;
+#X connect 10 1 17 0;
+#X connect 10 2 11 0;
+#X connect 11 0 16 0;
+#X connect 12 0 9 0;
+#X connect 15 0 12 0;
+#X coords 0 -1 1 1 180 17 1 40 50;

@@ -1,0 +1,34 @@
+#N canvas 59 24 450 300 10;
+#X obj 139 189 spectdelay~ 1024 2048 4 6;
+#X obj 204 146 prepend dt;
+#X obj 204 83 array2list delay;
+#X obj 216 125 arrayreset delay;
+#N canvas 434 246 450 300 (subpatch) 0;
+#X array delay 32 float 3;
+#A 0 0.0449208 0.0949208 0.134921 0.184921 0.224921 0.254921 0.284921
+0.304921 0.334921 0.354921 0.38492 0.39492 0.43492 0.45492 0.48492
+0.51492 0.54492 0.58492 0.60492 0.62492 0.65492 0.67492 0.70492 0.71492
+0.73492 0.76492 0.78492 0.82492 0.85492 0.86492 0.89492 0.92492;
+#X coords 0 1 32 0 320 100 1;
+#X restore -128 46 graph;
+#X obj -126 149 hsl 316 15 0 1 0 0 \$0-dt empty empty -2 -8 0 10 -261682
+-1 -1 7400 1;
+#X obj 194 45 bng 15 250 50 0 delay_changed empty empty 17 7 0 10 -261682
+-1 -1;
+#X obj -37 240 readsf~;
+#X msg -42 219 open \$1 \, start;
+#X msg -42 170 bang;
+#X obj -42 194 openpanel;
+#X obj 143 216 sfx-record~;
+#X obj 125 238 dac~;
+#X floatatom 215 106 5 0 0 0 - - -;
+#X connect 0 0 11 0;
+#X connect 0 0 12 0;
+#X connect 0 0 12 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 7 0 0 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 13 0 1 0;
