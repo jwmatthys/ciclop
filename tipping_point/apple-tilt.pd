@@ -1,0 +1,14 @@
+#N canvas 442 266 450 300 10;
+#X obj 168 119 unpack f f f;
+#X obj 164 146 outlet;
+#X obj 207 146 outlet;
+#X obj 250 145 outlet;
+#X obj 166 70 metro 50;
+#X obj 165 49 loadbang;
+#X obj 168 94 apple/sudden_motion_sensor;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 0 0;
